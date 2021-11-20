@@ -1,0 +1,7 @@
+# git
+git
+.gitignore
+
+# python
+venv
+__pycache__

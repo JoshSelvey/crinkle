@@ -32,17 +32,17 @@ const Graph = ({ team, player1, player2 }) => {
 
       switch(n_groups) {
         case -Infinity:
-          SetMessage(<><b>No link found.</b></>)
+          SetMessage(<><b>No link found</b></>)
           break
         case 1:
-          SetMessage(<><b>{player1.label}</b> has played with themselves.</>)
+          SetMessage(<><b>{player1.label}</b> has played with themselves</>)
           break
         case 2:
           SetMessage(<><b>{player1.label}</b> played with <b>{player2.label}</b></>)
           break
         default:
           SetMessage(
-            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation.</>
+            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation</>
           )
       }
 

@@ -1,0 +1,2 @@
+FLASK_APP=flask_dev_server.py
+FLASK_ENV=development

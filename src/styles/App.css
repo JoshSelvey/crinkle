@@ -1,0 +1,106 @@
+/* App Content */
+body {
+  background-color: #84d2f6;
+}
+
+.App {
+  height: 85vh;
+}
+
+.content {
+  margin: 80px 40px 40px 40px;
+}
+
+/* Button Content */
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.btn {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  width: 100px;
+  height: 50px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #b9314f;
+}
+
+/* 1st Select Row */
+.select-row-1 {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px 20px 0px;
+}
+
+/* 2nd Select Row */
+.col-select {
+  display: flex;
+  margin: 10px 0px;
+}
+
+@media screen and (max-width: 500px) {
+  .col-select {
+    justify-content: center;
+  }
+  .graph-div {
+    padding: 40px 0px;
+    margin: auto;
+    height: 820px;
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  .select-row-2 {
+    display: flex;
+  }
+  .col-left {
+    justify-content: right;
+  }
+  .col-right {
+    justify-content: left;
+  }
+  .select-row-2 > *:nth-child(odd) {
+    flex: 1 1 40%;
+  }
+  .select-row-2 > *:nth-child(2) {
+    flex: 1 1 20%;
+  }
+  .graph-div {
+    padding: 40px 0px;
+    margin: auto;
+    height: 500px;
+    width: 820px;
+  }
+}
+
+/* Graph Content */
+.svg-container {
+  border-radius: 16px;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+
+/* Sketch Content */
+.sketch {
+  margin: 35px;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.canvas {
+  margin: 10px;
+}

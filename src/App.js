@@ -4,6 +4,7 @@ import Select from 'react-select'
 import Button from './components/Button'
 import MenuList from './components/menuList'
 import Graph from './components/Graph'
+import Sketch from './components/Sketch'
 import selectStyles from './styles/selectStyle'
 import selectTheme from './styles/selectTheme'
 
@@ -46,7 +47,9 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='sketch'></div>
+      <div className='sketch'>
+        <Sketch/>
+      </div>
     <div className='content'>
       <div className='select-row-1'>
         <Select

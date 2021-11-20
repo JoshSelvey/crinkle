@@ -6,6 +6,8 @@ def get_link(team, player1, player2):
   player_to_player = {player: players.split(',') for player, players in player_to_player.items()}
   player_info = pd.read_csv(f'Data/Team_to_Player/{team}.csv', dtype=str).set_index('id').to_dict()['name']
   dag, groups = bfs(player1, player2, player_to_player)
+  if not dag:
+    return {'nodes':[], 'links':[]}
   reduced_dag = get_reduced_dag(dag, {}, [player2])
   data = {
     'nodes': [{'id': s, 'group': groups[s], 'name': player_info[s]} for s in reduced_dag],

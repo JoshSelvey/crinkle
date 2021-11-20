@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import * as d3 from 'd3'
 
 const Graph = ({ team, player1, player2 }) => {
+  const [message, SetMessage] = useState()
 
   useEffect(() => {
     const width = parseFloat(d3.select('.graph-div').style('width'))
@@ -15,8 +16,10 @@ const Graph = ({ team, player1, player2 }) => {
       .attr('viewBox', [-width/2, -height/2, width, height])
 
     const getLink = async () => {
-      const response = await fetch(`/api/get_link_data/${team}/${player1}/${player2}`)
+      const response = await fetch(`/api/get_link_data/${team}/${player1.value}/${player2.value}`)
       var { nodes, links } = await response.json()
+
+
 
       const N = d3.map(nodes, d => d.id)
       const G = d3.map(nodes, d => d.group)
@@ -26,6 +29,23 @@ const Graph = ({ team, player1, player2 }) => {
       const LT = d3.map(links, ({target}) => target)
 
       const n_groups = Math.max.apply(Math, G)
+
+      switch(n_groups) {
+        case -Infinity:
+          SetMessage(<><b>No link found.</b></>)
+          break
+        case 1:
+          SetMessage(<><b>{player1.label}</b> has played with themselves.</>)
+          break
+        case 2:
+          SetMessage(<><b>{player1.label}</b> played with <b>{player2.label}</b></>)
+          break
+        default:
+          SetMessage(
+            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation.</>
+          )
+      }
+
       const radius = dominant_dim / (8*Math.sqrt(nodes.length))
       const stroke = radius / 10
       const margin = 2 * radius
@@ -128,11 +148,16 @@ const Graph = ({ team, player1, player2 }) => {
       }
     }
     getLink()
-  })
+  }, [team, player1, player2])
 
   return (
     <div>
-      <svg className='svg-container'/>
+      <div className='graph-info'>
+        {message}
+      </div>
+      <div>
+        <svg className='svg-container'/>
+      </div>
     </div>
   )
 }

@@ -29,8 +29,8 @@ function App() {
     setGraph(
       <Graph
         team={team.value}
-        player1={player1.value}
-        player2={player2.value}
+        player1={player1}
+        player2={player2}
       />
     )
   }

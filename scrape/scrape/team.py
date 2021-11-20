@@ -10,7 +10,7 @@ def get_team_players(team):
     'id': row[1].find('a')['href'].split('-')[-1],
     'name': row[1].text.strip('(1234567890)').strip()
   } for row in table]
-  return pd.DataFrame(player_info_dict)
+  return pd.DataFrame(player_info_dict).set_index('id')
 
 
 def scrape_team_players(teams):

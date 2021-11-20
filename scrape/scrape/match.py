@@ -15,10 +15,10 @@ def get_player_matches(player_id):
 def scrape_player_matches(teams):
   for team in teams:
     print(team)
-    player_ids = list(pd.read_csv(f'Data/Team_to_Player/{team}.csv', usecols=['id'])['id'])
+    player_ids = list(pd.read_csv(f'Data/Team_to_Player/{team}.csv', index_col=0).index)
     player_matches = [{
       'id': player_id,
       'matches': ','.join(get_player_matches(player_id))
     } for player_id in player_ids]
     player_matches = [player for player in player_matches if player['matches']]
-    pd.DataFrame.from_dict(player_matches).to_csv(f'Data/Player_to_Match/{team}.csv')
+    pd.DataFrame.from_dict(player_matches).rename_axis('player').to_csv(f'Data/Player_to_Match/{team}.csv')

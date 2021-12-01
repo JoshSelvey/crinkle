@@ -11,6 +11,13 @@ body {
   margin: 80px 40px 40px 40px;
 }
 
+.message {
+  color: #1a535c;
+  font-size: 24px;
+  text-align: center;
+  padding: 0px 0px 15px 0px;
+}
+
 /* Button Content */
 .btn-div {
   display: flex;
@@ -34,6 +41,7 @@ body {
 .btn:hover {
   color: #fff;
   background-color: #b9314f;
+  cursor: pointer;
 }
 
 /* 1st Select Row */

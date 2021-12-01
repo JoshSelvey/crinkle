@@ -51,6 +51,9 @@ function App() {
         <Sketch/>
       </div>
     <div className='content'>
+      <div className='message'>
+      Link players through shared tests.
+      </div>
       <div className='select-row-1'>
         <Select
           options={team_dropdown}

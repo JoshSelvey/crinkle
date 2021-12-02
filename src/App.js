@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Select from 'react-select'
 import Button from './components/Button'
 import MenuList from './components/menuList'
+import Message from './components/Message'
 import Graph from './components/Graph'
 import Sketch from './components/Sketch'
 import selectStyles from './styles/selectStyle'
@@ -51,12 +52,11 @@ function App() {
         <Sketch/>
       </div>
     <div className='content'>
-      <div className='message'>
-      Link players through shared tests.
-      </div>
+      <Message/>
       <div className='select-row-1'>
         <Select
           options={team_dropdown}
+          placeholder='Team'
           onChange={changeTeam}
           styles={selectStyles}
           theme={selectTheme}
@@ -68,6 +68,7 @@ function App() {
             components={{MenuList}}
             value={player1}
             options={player_options}
+            placeholder='Player 1'
             onChange={(e) => {setPlayer1(e)}}
             styles={selectStyles}
             theme={selectTheme}
@@ -79,6 +80,7 @@ function App() {
             components={{MenuList}}
             value={player2}
             options={player_options}
+            placeholder='Player 2'
             onChange={(e) => {setPlayer2(e)}}
             styles={selectStyles}
             theme={selectTheme}

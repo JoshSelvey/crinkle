@@ -39,8 +39,9 @@ const Graph = ({ team, player1, player2 }) => {
           SetMessage(<><b>{player1.label}</b> played with <b>{player2.label}</b></>)
           break
         default:
+          const ways_plural = n_paths === 1 ? '' : 's'
           SetMessage(
-            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation in <b>{n_paths}</b> ways</>
+            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation in <b>{n_paths}</b> way{ways_plural}</>
           )
       }
 

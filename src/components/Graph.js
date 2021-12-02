@@ -17,9 +17,7 @@ const Graph = ({ team, player1, player2 }) => {
 
     const getLink = async () => {
       const response = await fetch(`/api/get_link_data/${team}/${player1.value}/${player2.value}`)
-      var { nodes, links } = await response.json()
-
-
+      var { nodes, links, n_paths } = await response.json()
 
       const N = d3.map(nodes, d => d.id)
       const G = d3.map(nodes, d => d.group)
@@ -42,7 +40,7 @@ const Graph = ({ team, player1, player2 }) => {
           break
         default:
           SetMessage(
-            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation</>
+            <><b>{player1.label}</b> linked to <b>{player2.label}</b> with <b>{n_groups-1}</b> degrees of separation in <b>{n_paths}</b> ways</>
           )
       }
 

@@ -1,3 +1,5 @@
+import time
+
 import pandas as pd
 
 
@@ -8,10 +10,11 @@ def get_link(team, player1, player2):
   dag, groups = bfs(player1, player2, player_to_player)
   if not dag:
     return {'nodes':[], 'links':[]}
-  reduced_dag = get_reduced_dag(dag, {}, [player2])
+  reduced_dag, n_paths = get_reduced_dag(dag, player1, player2)
   data = {
     'nodes': [{'id': s, 'group': groups[s], 'name': player_info[s]} for s in reduced_dag],
-    'links': [{"source": s, "target": e, "value": 1} for s in reduced_dag for e in reduced_dag[s]]
+    'links': [{"source": s, "target": e, "value": 1} for s in reduced_dag for e in reduced_dag[s]],
+    'n_paths': n_paths
     }
   return data
 
@@ -34,10 +37,18 @@ def bfs(player1, player2, player_to_player):
   return False, {}
 
 
-def get_reduced_dag(dag, reduced_dag, nodes):
-  if nodes:
-    for node in nodes:
-      reduced_dag[node] = dag[node]
-    reduced_node = [link for links in reduced_dag.values() for link in links if not link in reduced_dag]
-    return get_reduced_dag(dag, reduced_dag, reduced_node)
-  return reduced_dag
+def get_paths(dag, end, start, players):
+  if end == start:
+    return players, 1
+  count = 0
+  for e in dag[end]:
+    players, sub_count = get_paths(dag, e, start, players=players)
+    players.add(end)
+    count += sub_count
+  return players, count
+
+
+def get_reduced_dag(dag, player1, player2):
+  players, n_paths = get_paths(dag, player2, player1, {player1})
+  reduced_dag = {player: [a for a in dag[player] if a in players] for player in players}
+  return reduced_dag, n_paths

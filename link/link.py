@@ -1,18 +1,16 @@
-import time
-
 import pandas as pd
 
 
 def get_link(team, player1, player2):
   player_to_player = pd.read_csv(f'Data/Player_to_Player/{team}.csv', dtype=str).set_index('player').to_dict()['players']
   player_to_player = {player: players.split(',') for player, players in player_to_player.items()}
-  player_info = pd.read_csv(f'Data/Team_to_Player/{team}.csv', dtype=str).set_index('id').to_dict()['name']
+  player_info = pd.read_csv(f'Data/Team_to_Player/{team}.csv', dtype=str).set_index('id').to_dict()
   dag, groups = bfs(player1, player2, player_to_player)
   if not dag:
     return {'nodes':[], 'links':[]}
   reduced_dag, n_paths = get_reduced_dag(dag, player1, player2)
   data = {
-    'nodes': [{'id': s, 'group': groups[s], 'name': player_info[s]} for s in reduced_dag],
+    'nodes': [{'id': s, 'group': groups[s], 'name': player_info['name'][s], 'image_path': player_info['image_path'][s]} for s in reduced_dag],
     'links': [{"source": s, "target": e, "value": 1} for s in reduced_dag for e in reduced_dag[s]],
     'n_paths': n_paths
     }

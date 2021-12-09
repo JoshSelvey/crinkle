@@ -1,4 +1,4 @@
-from scrape.wrangle.images import save_images
+from scrape.scrape.images import save_images
 from scrape.wrangle.wrangle import wrangle_teams, wrangle_world
 from scrape.wrangle.json import get_json
 

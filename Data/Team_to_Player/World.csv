@@ -793,8 +793,6 @@ id,name
 6565,GD McGrath
 7629,MJ Slater
 6056,BP Julian
-6999,WJ O'Hanlon
-32148,AA Pagnis
 3975,J Angel
 6256,JL Langer
 6513,DR Martyn
@@ -1496,6 +1494,7 @@ id,name
 45463,P Hutchinson
 45051,CE Finlason
 44732,OR Dunell
+632168,JL Solozano
 1199304,JNT Seales
 851501,S Moseley
 348056,KR Mayers
@@ -1821,6 +1820,7 @@ id,name
 51483,LN Constantine
 51467,G Challenor
 51234,CR Browne
+959767,R Ravindra
 379140,DP Conway
 547749,WA Young
 625960,KA Jamieson
@@ -2102,6 +2102,7 @@ id,name
 36827,CS Dempster
 36301,RC Blunt
 36283,FT Badcock
+642519,SS Iyer
 554691,AR Patel
 719715,Washington Sundar
 802575,T Natarajan
@@ -2401,6 +2402,7 @@ id,name
 29654,M Jahangir Khan
 27665,SHM Colah
 26228,L Amar Singh
+922941,Abdullah Shafique
 43409,Tabish Khan
 1062812,Sajid Khan
 238672,Nauman Ali
@@ -2423,7 +2425,7 @@ id,name
 389666,Mohammad Abbas
 227762,Sharjeel Khan
 323389,Mohammad Rizwan
-348148,Mohammad Nawaz
+348148,Mohammad Nawaz (3)
 348144,Babar Azam
 480603,Iftikhar Ahmed
 547079,Sami Aslam
@@ -2646,6 +2648,7 @@ id,name
 40092,Fazal Mahmood
 39001,Anwar Hussain
 38997,Amir Elahi
+784367,KIC Asalanka
 1028665,P Jayawickrama
 1028655,P Nissanka
 629084,RTM Mendis
@@ -2922,6 +2925,8 @@ id,name
 55279,MG Burmester
 55267,EA Brandes
 55235,KJ Arnott
+1161381,Mahmudul Hasan Joy
+629059,Yasir Ali
 990039,Shoriful Islam
 821749,Saif Hassan
 932355,Ebadat Hossain
@@ -3040,7 +3045,7 @@ id,name
 524050,Sayed Shirzad
 633399,Munir Ahmad
 974173,Abdul Wasi
-1059030,Abdul Malik
+1059030,Abdul Malik (1)
 524048,Nasir Jamal
 402245,Amir Hamza
 712219,Zahir Khan

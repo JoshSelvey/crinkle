@@ -21,7 +21,7 @@ const Graph = ({ team, player1, player2 }) => {
 
       const N = d3.map(nodes, d => d.id)
       const G = d3.map(nodes, d => d.group)
-      const I = d3.map(nodes, d => `/images/${d.id}.jpg`)
+      const I = d3.map(nodes, d => `/images/players/${d.image_path}.jpg`)
       const T = d3.map(nodes, d => d.name)
       const LS = d3.map(links, ({source}) => source)
       const LT = d3.map(links, ({target}) => target)
@@ -36,7 +36,7 @@ const Graph = ({ team, player1, player2 }) => {
           SetMessage(<><b>{player1.label}</b> has played with themselves</>)
           break
         case 2:
-          SetMessage(<><b>{player1.label}</b> played with <b>{player2.label}</b></>)
+          SetMessage(<><b>{player1.label}</b> has played with <b>{player2.label}</b></>)
           break
         default:
           const ways_plural = n_paths === 1 ? '' : 's'

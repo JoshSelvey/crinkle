@@ -41,7 +41,7 @@ def wrangle_teams(teams):
 
 def wrangle_world(teams):
   player_to_match_strings = pd.concat([pd.read_csv(f'Data/Player_to_Match/{team}.csv', index_col=['id'], usecols=['id', 'matches']) for team in teams]).to_dict()['matches']
-  player_info = pd.concat([pd.read_csv(f'Data/Team_to_Player/{team}.csv', index_col=['id'], usecols=['id', 'name']) for team in teams])
+  player_info = pd.concat([pd.read_csv(f'Data/Team_to_Player/{team}.csv', index_col=['id'], usecols=['id', 'name', 'image', 'image_path']) for team in teams])
   player_info = player_info[~player_info.index.duplicated(keep='last')]
   player_to_match = {str(player): matches.split(',') for player, matches in player_to_match_strings.items()}
   match_to_player = reverse_dict(player_to_match)
